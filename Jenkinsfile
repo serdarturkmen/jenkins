@@ -35,7 +35,7 @@ def notifyChannel() {
         def blamed = committerEmail
         def slackURL = "https://hooks.slack.com/services/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"
         def BUILD_URL = "serdar.com"
-        def json = "{\"blocks\": [{\"type\": \"section\", \"text\": {\"type\": \"mrkdwn\", \"text\": \":x: ${currentBuild.result} *${BRANCH_NAME} - Build: ${BUILD_NUMBER} - Committer: ${blamed}\"}}, {\"type\": \"context\", \"elements\": [{\"type\": \"mrkdwn\", \"text\": \"Build URL: ${BUILD_URL}\"}]}]}"
+        def json = "{\"blocks\": [{\"type\": \"section\", \"text\": {\"type\": \"mrkdwn\", \"text\": \":x: ${currentBuild.result} * Build: ${BUILD_NUMBER} - Committer: ${blamed}\"}}, {\"type\": \"context\", \"elements\": [{\"type\": \"mrkdwn\", \"text\": \"Build URL: ${BUILD_URL}\"}]}]}"
 
         sh "curl -s -X POST -H 'Content-type: application/json' --data '${json}' ${slackURL}"
 
