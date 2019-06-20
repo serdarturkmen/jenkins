@@ -29,11 +29,8 @@ node {
 def notifyChannel() {
     try {
         // Slack channel #acms-parser
-        if (currentBuild.result == 'SUCCESS') {
-            def icon = ':white_check_mark:'
-         }else{
-            def icon = ':white_check_mark:'
-         }
+        def icon = ':white_check_mark'
+   
         def committerEmail = sh(
             script: 'git --no-pager show -s --format=\'%ae\'',
             returnStdout: true).trim()
