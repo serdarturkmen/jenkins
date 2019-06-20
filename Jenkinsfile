@@ -9,7 +9,6 @@ node {
 
         stage('check java') {
             sh "java -version"
-            notifyChannel()
         }
 
         stage('docker-build') {
@@ -21,12 +20,10 @@ node {
         currentBuild.result = 'FAILURE'
         throw e
     } finally {
+        notifyBitbucket()
         notifyChannel()
         echo "finished"
     }
-
-    
-
 
 }
 
