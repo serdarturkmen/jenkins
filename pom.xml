@@ -63,7 +63,7 @@
 			<id>sonar</id>
 			<properties>
 				<sonar.host.url>
-					https://localhost:9001
+					https://192.168.10.94:9001
 				</sonar.host.url>
 			</properties>
 		</profile>
