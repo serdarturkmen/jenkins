@@ -29,7 +29,7 @@
 		<sonar.sources>${project.basedir}/src/main/</sonar.sources>
 		<sonar.junit.reportsPath>${project.testresult.directory}</sonar.junit.reportsPath>
 		<sonar.tests>${project.basedir}/src/test/</sonar.tests>
-		<sonar.host.url>http://localhost:9001</sonar.host.url>
+		<sonar.host.url>http://192.168.10.94:9001</sonar.host.url>
 	</properties>
 
 	<dependencies>

@@ -17,7 +17,7 @@ node {
         }
 
         stage('sonar') {
-            sh "./mvnw sonar:sonar -Dsonar.login=ca226c002fd98c2da8a96871bc9defac5edeb448"
+            sh "./mvnw sonar:sonar -Dsonar.host.url=http://192.168.10.94:9001 -Dsonar.login=ca226c002fd98c2da8a96871bc9defac5edeb448"
             currentBuild.result = 'SUCCESS'
         }
 
