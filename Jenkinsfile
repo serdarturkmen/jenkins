@@ -12,7 +12,12 @@ node {
         }
 
         stage('docker-build') {
-            sh "./mvnw package -Pprod verify jib:dockerBuild"
+            sh "./mvnw clean install"
+            currentBuild.result = 'SUCCESS'
+        }
+
+        stage('docker-build') {
+            sh "./mvnw sonar:sonar"
             currentBuild.result = 'SUCCESS'
         }
 
