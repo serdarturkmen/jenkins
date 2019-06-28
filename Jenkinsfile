@@ -11,13 +11,13 @@ node {
             sh "java -version"
         }
 
-        stage('docker-build') {
+        stage('build') {
             sh "./mvnw clean install"
             currentBuild.result = 'SUCCESS'
         }
 
-        stage('docker-build') {
-            sh "./mvnw sonar:sonar"
+        stage('sonar') {
+            sh "./mvnw sonar:sonar -Dsonar.login=ca226c002fd98c2da8a96871bc9defac5edeb448"
             currentBuild.result = 'SUCCESS'
         }
 
