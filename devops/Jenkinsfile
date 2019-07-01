@@ -12,7 +12,7 @@ node {
         }
 
         stage('build') {
-            withSonarQubeEnv('My SonarQube Server') {
+            withSonarQubeEnv('SonarQube Scanner') {
                 sh "./mvnw clean install"
                 currentBuild.result = 'SUCCESS'
             }
