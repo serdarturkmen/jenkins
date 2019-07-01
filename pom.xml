@@ -27,7 +27,7 @@
 		<sonar.jacoco.reportPaths>${project.testresult.directory}/coverage/jacoco/jacoco.exec</sonar.jacoco.reportPaths>
 		<sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
 		<sonar.sources>${project.basedir}/src/main/</sonar.sources>
-		<sonar.junit.reportsPath>${project.testresult.directory}</sonar.junit.reportsPath>
+		<sonar.coverage.jacoco.xmlReportPaths>${project.testresult.directory}</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.tests>${project.basedir}/src/test/</sonar.tests>
 		<sonar.host.url>http://192.168.10.94:9001</sonar.host.url>
 	</properties>
@@ -56,6 +56,12 @@
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>problem-spring-web</artifactId>
+			<version>0.24.0-RC.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<profiles>
@@ -73,13 +79,20 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+			</plugin>
+
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 			</plugin>
+
 
 		</plugins>
 
