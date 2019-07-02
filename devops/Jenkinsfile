@@ -19,8 +19,11 @@ node {
         }
 
         stage('sonar') {
-            sh "./mvnw sonar:sonar -Dsonar.host.url=http://192.168.10.94:9001 -Dsonar.login=ac637e6a33f53f5bab34e6f48b764429c2a1cbbc"
-            currentBuild.result = 'SUCCESS'
+            withSonarQubeEnv() {
+                 sh "./mvnw sonar:sonar -Dsonar.host.url=http://192.168.10.94:9001 -Dsonar.login=ac637e6a33f53f5bab34e6f48b764429c2a1cbbc"
+                 currentBuild.result = 'SUCCESS'
+            }
+
         }
 
     } catch (final e){
