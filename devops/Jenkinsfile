@@ -62,7 +62,9 @@ def notifyChannel() {
             def json = "{\"blocks\": [{\"type\": \"section\", \"text\": {\"type\": \"mrkdwn\", \"text\": \"${icon} Job Url: ${env.JOB_URL}${BUILD_NUMBER} ${currentBuild.result}  - Committer: ${blamed}\"}}, {\"type\": \"context\", \"elements\": [{\"type\": \"mrkdwn\", \"text\": \"Build URL: ${BUILD_URL} \"}]}]}"
 
             sh "curl -s -X POST -H 'Content-type: application/json' --data '${json}' ${slackURL}"
-        }
+        }else{
+                     echo "not master"
+                 }
 
     } catch (error) {
         echo error
