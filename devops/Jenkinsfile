@@ -41,7 +41,7 @@ node {
     def branchesToNotify = ["master"]
         if (branchesToNotify.any{env.BRANCH_NAME == it}) {
             notifyChannel()
-             echo "notification is sent"
+            echo "notification is sent"
         }else{
              echo "not master branch"
         }
