@@ -9,13 +9,8 @@ node {
 
         stage('check java') {
             sh "java -version"
-        }
-
-        stage('build') {
-            withSonarQubeEnv('SonarQube Scanner') {
-                sh "./mvnw clean install"
-                currentBuild.result = 'SUCCESS'
-            }
+            echo "version"
+            echo ${env.BRANCH_NAME}
         }
 
         stage('sonar') {
