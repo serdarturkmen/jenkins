@@ -10,7 +10,6 @@ node {
         stage('check java') {
             sh "java -version"
             echo "version"
-            echo ${env.BRANCH_NAME}
         }
 
     } catch (final e){
