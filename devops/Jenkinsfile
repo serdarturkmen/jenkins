@@ -10,15 +10,14 @@ node {
         stage('check java') {
             sh "java -version"
             echo "version"
-            echo "${env.BRANCH_NAME}""
+            echo ${env.BRANCH_NAME}
         }
 
     } catch (final e){
         currentBuild.result = 'FAILURE'
         throw e
     } finally {
-    def branchesToNotify = ["master"]
-        if (branchesToNotify.any{env.BRANCH_NAME == it}) {
+        if (env.BRANCH_NAME == master) {
             notifyChannel()
             echo "notification is sent"
         }else{
