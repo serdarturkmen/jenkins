@@ -63,8 +63,8 @@ def notifyChannel() {
 
             sh "curl -s -X POST -H 'Content-type: application/json' --data '${json}' ${slackURL}"
         }else{
-                     echo "not master"
-                 }
+            echo "not master"
+        }
 
     } catch (error) {
         echo error
