@@ -20,7 +20,7 @@ node {
 
         stage('sonar') {
             withSonarQubeEnv() {
-                 sh "./mvnw sonar:sonar -Dsonar.host.url=http://192.168.10.94:9001 -Dsonar.login=3a79f42dcbfa6e8c3732f3c2715647697ce20a2c"
+                 sh "./mvnw sonar:sonar -Dsonar.host.url=http://192.168.10.94:9001 -Dsonar.login=eae95211210a88b22bd118db37c318ac4041e38f"
                  currentBuild.result = 'SUCCESS'
             }
         }
